@@ -1,0 +1,39 @@
+<div class="col-lg-offset-2 col-lg-9" ng-show="inProgress">
+	<div ng-show="!quizOver">
+		<h2 id="question">{{question}}</h2>
+		<ul id="options">
+			<li ng-repeat="option in options">
+				<label>
+					<input type="radio" name="answer" value="{{option}}">
+					{{option}}
+				</label>
+			</li>
+		</ul>
+		<div class="col-lg-offset-3 col-lg-4" >
+		<button ng-click="checkAnswer()" class="btn btn-success" ng-show="answerMode">Submit</button>
+		</div>
+		<div ng-show="!answerMode">
+			<button ng-click="nextQuestion()" class="btn btn-success">Next</button>
+			<span ng-show="correctAns" style="color:green">That is correct!</span>
+			<span ng-show="!correctAns" style="color:red">Sorry, that is an incorrect answer.</span>
+		</div>
+	</div>
+
+	<div ng-show="quizOver">
+		<h2>Test is over</h2>
+		<button class="btn btn-success" ng-click="reset()">Play again</button>
+	</div>
+
+	<div id="score">
+		Score: {{score}}
+	</div>
+</div>
+
+<div class="col-lg-offset-4 col-lg-4" ng-show="!inProgress">
+<br>
+<br>
+<br>
+<br>
+	<p style="font-size=14;font-weight:bold;" >Welcome to the Angular JS Solutions</p>
+	<button  class="btn btn-success" id="startQuiz" ng-click="start()">Start the Test</button>
+</div>
